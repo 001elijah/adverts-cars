@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import AutoCardsList from '../components/AutoCardsList/AutoCardsList';
 
 const Catalog = () => {
   return (
-    <div>Catalog</div>
+    <section>
+      <AutoCardsList/>
+    </section>
   )
 }
 
