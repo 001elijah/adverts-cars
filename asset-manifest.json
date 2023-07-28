@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/adverts-cars/static/css/main.7c6a2db7.css",
-    "main.js": "/adverts-cars/static/js/main.ac72be1e.js",
+    "main.css": "/adverts-cars/static/css/main.f1c824b7.css",
+    "main.js": "/adverts-cars/static/js/main.6f2064aa.js",
     "static/media/Poppins-Regular.ttf": "/adverts-cars/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/adverts-cars/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/adverts-cars/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
     "index.html": "/adverts-cars/index.html",
-    "main.7c6a2db7.css.map": "/adverts-cars/static/css/main.7c6a2db7.css.map",
-    "main.ac72be1e.js.map": "/adverts-cars/static/js/main.ac72be1e.js.map"
+    "main.f1c824b7.css.map": "/adverts-cars/static/css/main.f1c824b7.css.map",
+    "main.6f2064aa.js.map": "/adverts-cars/static/js/main.6f2064aa.js.map"
   },
   "entrypoints": [
-    "static/css/main.7c6a2db7.css",
-    "static/js/main.ac72be1e.js"
+    "static/css/main.f1c824b7.css",
+    "static/js/main.6f2064aa.js"
   ]
 }
