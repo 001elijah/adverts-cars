@@ -16,7 +16,7 @@ const HomePageSection = () => {
             to={'catalog'}
             key={'catalog'}
           >
-            Select your car
+            Pick your car
           </Link>
           
       </section>
