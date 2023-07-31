@@ -1,8 +1,11 @@
 import React from 'react'
+import FavoriteAutoCardsList from '../components/FavoriteAutoCardsList/FavoriteAutoCardsList'
 
-const Favorites = () => {
+const Favorites = ({ vehiclesDatabase, addToFavorites, removeFromFavorites, favoritesItems }) => {
   return (
-    <div>Favorites</div>
+    <section className='container'>
+      <FavoriteAutoCardsList vehiclesDatabase={vehiclesDatabase} addToFavorites={addToFavorites} removeFromFavorites={removeFromFavorites} favoritesItems={favoritesItems}  />
+    </section>
   )
 }
 

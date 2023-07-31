@@ -1,10 +1,10 @@
 import React from 'react';
 import AutoCardsList from '../components/AutoCardsList/AutoCardsList';
 
-const Catalog = () => {
+const Catalog = ({ vehiclesDatabase, addToFavorites, removeFromFavorites, favoritesItems }) => {
   return (
-    <section>
-      <AutoCardsList/>
+    <section className='container'>
+      <AutoCardsList vehiclesDatabase={vehiclesDatabase} addToFavorites={addToFavorites} removeFromFavorites={removeFromFavorites} favoritesItems={favoritesItems} />
     </section>
   )
 }
