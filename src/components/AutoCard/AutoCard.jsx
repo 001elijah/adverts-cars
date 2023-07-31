@@ -54,9 +54,9 @@ const AutoCard = ({ vehicleInfo, onAddToFavorites, onRemoveFromFavorites, favori
                   : (<button type='button' onClick={() => handleToggleLiked(id)} className={s.liked}>
                         <img src={likeIcon} alt="like" />
                     </button>)}
-              <img className={s.image} src={img} alt="car" />
+              <img className={s.image} src={img} alt={[make, ' ' + model]} />
               <div className={s.titleWrapper}>
-                  <p>{make}<span className={s.modelHighlight}> {model}</span></p>
+                  <p className={s.clamp}>{make}<span className={s.modelHighlight}> {model}</span></p>
                   <p>{rentalPrice}</p>
               </div>
               <ul className={s.infoWrapper}>{info?.map(item => <span key={shortid.generate()}>{item}</span>)}</ul>

@@ -12,7 +12,7 @@ const LearnMoreModalMarkup = ({ vehicleInfo }) => {
     const conditions = [...rentalConditions.split('\n'), `Mileage: ${prettifiedMileage}`, `Price: ${rentalPrice}`];
   return (
                       <>
-                        <img className={s.modalImage} src={img} alt="car" />
+                        <img className={s.modalImage} src={img} alt={[make, ' ' + model]} />
                         <div className={s.titleWrapper}>
                             <p>{make} <span className={s.modelHighlight}> {model}</span>, {year}</p>
                         </div>

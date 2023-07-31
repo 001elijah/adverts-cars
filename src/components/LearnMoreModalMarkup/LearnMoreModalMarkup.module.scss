@@ -8,6 +8,10 @@
     object-fit: cover;
     border-radius: 14px;
 
+    background-color: rgb(237, 237, 237);
+    line-height: 100px;
+    text-align: center;
+
     @include tablet {
         width: 461px;
     }
@@ -66,7 +70,10 @@
 
 .conditionsWrapper {
     margin-bottom: 24px;
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 4px;
 
     & > span {
         display: inline-block;

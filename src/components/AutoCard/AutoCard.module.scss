@@ -24,12 +24,23 @@
     margin-bottom: 14px;
     object-fit: cover;
     border-radius: 14px;
+    background-color: rgb(237, 237, 237);
+    line-height: 100px;
+    text-align: center;
 }
 
 .titleWrapper {
     margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
+}
+
+.clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    white-space: wrap;
+    overflow: hidden;
 }
 
 .modelHighlight {
