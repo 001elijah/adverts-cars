@@ -29,7 +29,7 @@ const LearnMoreModalMarkup = ({ vehicleInfo }) => {
                               return <span key={shortid.generate()}>{item}</span>
                             }})}
                           </ul>
-                        <button className={s.button} type='button'>Rent the car</button>
+                        <a href='tel:+380730000000' className={s.button}><span>☎️ Rental car</span></a>
                       </>
   )
 }
