@@ -12,7 +12,8 @@ const AutoCard = ({ vehicleInfo, onAddToFavorites, onRemoveFromFavorites, favori
     const [isLiked, setIsLiked] = useState(false);
     const { id, make, model, type, img, functionalities, rentalPrice, rentalCompany, address, mileage } = vehicleInfo;
     const location = address.substring(address.indexOf(',') + 1, address.length).split(',');
-    const info = [location[0].trim(), location[1].trim(), rentalCompany, type, mileage, functionalities];
+    const prettifiedMileage = String(mileage).slice(0, 1) + ',' + String(mileage).slice(1);
+    const info = [location[0].trim(), location[1].trim(), rentalCompany, type, prettifiedMileage, functionalities];
     const handleToggleModal = () => {
         setIsModalOpen(!isModalOpen);
     }
@@ -55,7 +56,7 @@ const AutoCard = ({ vehicleInfo, onAddToFavorites, onRemoveFromFavorites, favori
                     </button>)}
               <img className={s.image} src={img} alt="car" />
               <div className={s.titleWrapper}>
-                  <p>{make}<span className={s.modelHighlight}>{model}</span></p>
+                  <p>{make}<span className={s.modelHighlight}> {model}</span></p>
                   <p>{rentalPrice}</p>
               </div>
               <ul className={s.infoWrapper}>{info?.map(item => <span key={shortid.generate()}>{item}</span>)}</ul>
