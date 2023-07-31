@@ -31,30 +31,35 @@ const AutoCard = ({ vehicleInfo, onAddToFavorites, onRemoveFromFavorites, favori
         } else {
             document.body.style.overflow = 'unset';
         }
+    }, [isModalOpen])
 
-        if (favoritesItems?.length) {
+    useEffect(() => {
+      if (favoritesItems?.length) {
             setIsLiked(favoritesItems?.find(vehicle => vehicle.id === id) || false);
+        } else {
+            setIsLiked(false)
         }
-    }, [isModalOpen, favoritesItems, id])
+    }, [favoritesItems, id])
+    
     
     
   return (
       <li>
           <div className={s.wrapper}>
               {isLiked
-                  ? (<div onClick={() => handleToggleLiked(id)} className={s.liked}>
+                  ? (<button type='button' onClick={() => handleToggleLiked(id)} className={s.liked}>
                         <img src={isLikedIcon} alt="like" />
-                    </div>)
-                  : (<div onClick={() => handleToggleLiked(id)} className={s.liked}>
+                    </button>)
+                  : (<button type='button' onClick={() => handleToggleLiked(id)} className={s.liked}>
                         <img src={likeIcon} alt="like" />
-                    </div>)}
+                    </button>)}
               <img className={s.image} src={img} alt="car" />
               <div className={s.titleWrapper}>
                   <p>{make}<span className={s.modelHighlight}>{model}</span></p>
                   <p>{rentalPrice}</p>
               </div>
               <ul className={s.infoWrapper}>{info?.map(item => <span key={shortid.generate()}>{item}</span>)}</ul>
-              <button className={s.button} onClick={handleToggleModal}type='button'>Learn more</button>
+              <button className={s.button} onClick={handleToggleModal} type='button'>Learn more</button>
           </div>
           {isModalOpen && (
                   <Modal onClose={handleToggleModal}>
