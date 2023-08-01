@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import AutoCard from '../AutoCard/AutoCard';
 import s from './AutoCardsList.module.scss';
 import LoadMoreButton from '../LoadMoreButton/LoadMoreButton';

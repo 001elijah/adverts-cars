@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import { getVehicles } from '../services/mockAPI';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
   const [favoritesItems, setFavoritesItems] = useState(() => {
       try {
       const items = JSON.parse(localStorage.getItem('favoritesItems'));
@@ -39,12 +38,10 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      setIsLoading(true);
       const items = await getVehicles();
       if (items) {
         setVehiclesDatabase(items);
       }
-      setIsLoading(false);
     })();
   }, [])
   
