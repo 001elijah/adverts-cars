@@ -23,10 +23,10 @@ const AutoCardsList = ({ vehiclesDatabase, addToFavorites, removeFromFavorites, 
           <ul className={s.wrapper}>
               {vehiclesDatabase && currentVehicles.map(vehicle => <AutoCard key={vehicle.id} vehicleInfo={vehicle} onAddToFavorites={addToFavorites} onRemoveFromFavorites={removeFromFavorites} favoritesItems={favoritesItems} />)}
           </ul>
-          <LoadMoreButton
+          { currentPage * VEHICLES_PER_PAGE < vehiclesDatabase.length && <LoadMoreButton
                   onClickProp={showNext}
                 //   isLoading={isLoading}
-          />
+          />}
       </>
   )
 }
