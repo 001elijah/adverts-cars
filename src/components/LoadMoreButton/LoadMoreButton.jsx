@@ -1,19 +1,21 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import s from './LoadMoreButton.module.scss';
-import Loader from '../Loader/Loader';
 
-const LoadMoreButton = ({ onClickProp, isLoading }) => {
+const LoadMoreButton = ({ onClickProp }) => {
   return (
-    <button type="button" className={s.loadMoreButton} onClick={onClickProp}>
-            Load more {isLoading && <Loader/>}
+    <button
+      type="button"
+      className={s.loadMoreButton}
+      onClick={onClickProp}
+    >
+      Load more
     </button>
   )
-}
+};
 
-// LoadMoreButton.propTypes = {
-//     onClickProp: PropTypes.func.isRequired,
-//     isLoading: PropTypes.bool.isRequired
-// };
+LoadMoreButton.propTypes = {
+    onClickProp: PropTypes.func.isRequired,
+};
 
-export default LoadMoreButton
+export default LoadMoreButton;

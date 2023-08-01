@@ -1,19 +1,42 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import s from './AutoCard.module.scss';
-import Modal from '../Modal/Modal';
 import shortid from 'shortid';
+import PropTypes from 'prop-types';
+import Modal from '../Modal/Modal';
 import LearnMoreModalMarkup from '../LearnMoreModalMarkup/LearnMoreModalMarkup';
 import likeIcon from '../../assets/icons/like.svg';
 import isLikedIcon from '../../assets/icons/liked.svg';
+import LikeButton from '../LikeButton/LikeButton';
+import s from './AutoCard.module.scss';
 
 const AutoCard = ({ vehicleInfo, onAddToFavorites, onRemoveFromFavorites, favoritesItems }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
-    const { id, make, model, type, img, functionalities, rentalPrice, rentalCompany, address, mileage } = vehicleInfo;
+
+    const { 
+        id, 
+        make, 
+        model, 
+        type, 
+        img, 
+        functionalities, 
+        rentalPrice, 
+        rentalCompany, 
+        address, 
+        mileage 
+    } = vehicleInfo;
+
     const location = address.substring(address.indexOf(',') + 1, address.length).split(',');
     const prettifiedMileage = String(mileage).slice(0, 1) + ',' + String(mileage).slice(1);
-    const info = [location[0].trim(), location[1].trim(), rentalCompany, type, prettifiedMileage, functionalities];
+
+    const info = [
+        location[0].trim(), 
+        location[1].trim(), 
+        rentalCompany, 
+        type, 
+        prettifiedMileage, 
+        functionalities
+    ];
+
     const handleToggleModal = () => {
         setIsModalOpen(!isModalOpen);
     }
@@ -41,28 +64,49 @@ const AutoCard = ({ vehicleInfo, onAddToFavorites, onRemoveFromFavorites, favori
             setIsLiked(false)
         }
     }, [favoritesItems, id])
-    
-    
-    
+
   return (
       <li>
           <div className={s.wrapper}>
               {isLiked
-                  ? (<button type='button' onClick={() => handleToggleLiked(id)} className={s.liked}>
-                        <img src={isLikedIcon} alt="like" />
-                    </button>)
-                  : (<button type='button' onClick={() => handleToggleLiked(id)} className={s.liked}>
-                        <img src={likeIcon} alt="like" />
-                    </button>)}
+                  ? <LikeButton 
+                        handleClick={handleToggleLiked} 
+                        id={id} 
+                        icon={isLikedIcon} 
+                        alt={'liked'} 
+                    />
+                  : <LikeButton 
+                        handleClick={handleToggleLiked} 
+                        id={id} 
+                        icon={likeIcon} 
+                        alt={'like'} 
+                    />
+              }
               <img className={s.image} src={img} alt={[make, ' ' + model]} />
               <div className={s.titleWrapper}>
-                  <p className={s.clamp}>{make}<span className={s.modelHighlight}> {model}</span></p>
+                  <p className={s.clamp}>
+                      {make}
+                      <span className={s.modelHighlight}> {model}</span>
+                  </p>
                   <p>{rentalPrice}</p>
               </div>
-              <ul className={s.infoWrapper}>{info?.map(item => <span key={shortid.generate()}>{item}</span>)}</ul>
-              <button className={s.button} onClick={handleToggleModal} type='button'>Learn more</button>
+              <ul className={s.infoWrapper}>
+                  {info?.map(item =>
+                      <span key={shortid.generate()}>
+                        {item}
+                      </span>
+                  )}
+              </ul>
+              <button 
+                className={s.button} 
+                onClick={handleToggleModal} 
+                type='button'
+              >
+                  Learn more
+              </button>
           </div>
-          {isModalOpen && (
+          {isModalOpen
+              && (
                   <Modal onClose={handleToggleModal}>
                     <LearnMoreModalMarkup vehicleInfo={vehicleInfo} />
                   </ Modal>
@@ -72,7 +116,10 @@ const AutoCard = ({ vehicleInfo, onAddToFavorites, onRemoveFromFavorites, favori
 }
 
 AutoCard.propTypes = {
-  vehicleInfo: PropTypes.object.isRequired,
+    vehicleInfo: PropTypes.object.isRequired,
+    onAddToFavorites:PropTypes.func.isRequired, 
+    onRemoveFromFavorites:PropTypes.func.isRequired, 
+    favoritesItems:PropTypes.array.isRequired
 };
 
 export default AutoCard

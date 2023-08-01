@@ -1,12 +1,9 @@
+@import '../../assets/styles/vars';
+
 .header {
     width: 100%;
     padding: 20px 20px;
     margin-bottom: 22px;
     background-color: #ffe600;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px 0px;
-}
-
-.navigation {
-    display: flex;
-    gap:20px;
 }

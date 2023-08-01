@@ -1,12 +1,14 @@
-import React from 'react'
-import FavoriteAutoCardsList from '../components/FavoriteAutoCardsList/FavoriteAutoCardsList'
+import React from 'react';
+import FavoriteAutoCardsList from '../components/AutoCardsList/AutoCardsList';
 
-const Favorites = ({ vehiclesDatabase, addToFavorites, removeFromFavorites, favoritesItems }) => {
+
+
+const Favorites = ({ addToFavorites, removeFromFavorites, favoritesItems }) => {
   return (
     <section className='container'>
-      <FavoriteAutoCardsList vehiclesDatabase={vehiclesDatabase} addToFavorites={addToFavorites} removeFromFavorites={removeFromFavorites} favoritesItems={favoritesItems}  />
+      <FavoriteAutoCardsList vehiclesDatabase={null} addToFavorites={addToFavorites} removeFromFavorites={removeFromFavorites} favoritesItems={favoritesItems} />
     </section>
   )
-}
+};
 
-export default Favorites
+export default Favorites;

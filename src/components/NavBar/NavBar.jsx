@@ -1,29 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import clsx from 'clsx';
 import { IconContext } from 'react-icons';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import { Link, NavLink } from 'react-router-dom';
-import s from './NavBar.module.scss';
-import clsx from 'clsx';
+import { SIDEBAR_DATA } from '../../utils/constants';
 import Backdrop from '../Backdrop/Backdrop';
-
-const sidebarData = [
-    {
-        title: 'Home',
-        path: '/',
-        icons: <AiIcons.AiOutlineHome />
-    },
-    {
-        title: 'Catalog',
-        path: '/catalog',
-        icons: <AiIcons.AiOutlineAppstore />
-    },
-    {
-        title: 'Favorites',
-        path: '/favorites',
-        icons: <AiIcons.AiOutlineHeart />
-    }
-]
+import s from './NavBar.module.scss';
 
 const NavBar = () => {
     const [sidebar, setSidebar] = useState(false);
@@ -35,26 +18,26 @@ const NavBar = () => {
             document.body.style.overflow = 'unset';
         }
     }, [sidebar])
-  return (
+    return (
         <IconContext.Provider value={{ color: 'undefined' }}>
             <div className={s.navBar}>
                 <Link to='#' className={s.menuItems}></Link>
                 <FaIcons.FaBars className={s.burgerIcon} onClick={showSidebar} />
             </div>
-          {sidebar && <Backdrop closeModal={showSidebar} >
+            {sidebar && <Backdrop closeModal={showSidebar} >
                 <nav className={sidebar ? clsx(s.sidebar, s.active) : s.sidebar}>
                     <ul className={s.navBarItems}>
                         <li className={s.navBarToggle}>
                             <Link to='#' className={s.menuItems} onClick={showSidebar}>
-                                <AiIcons.AiOutlineClose className={s.closeIcon}/>
+                                <AiIcons.AiOutlineClose className={s.closeIcon} />
                             </Link>
                         </li>
-                        {sidebarData.map((item, index) => {
+                        {SIDEBAR_DATA.map((item, index) => {
                             return (
                                 <li key={index} className={s.navText}>
-                                    <NavLink 
-                                        to={item.path} 
-                                        onClick={showSidebar} 
+                                    <NavLink
+                                        to={item.path}
+                                        onClick={showSidebar}
                                         className={({ isActive }) =>
                                             isActive
                                                 ? s.isActive
@@ -71,7 +54,7 @@ const NavBar = () => {
                 </nav>
             </Backdrop>}
         </ IconContext.Provider>
-  )
-}
+    )
+};
 
-export default NavBar
+export default NavBar;

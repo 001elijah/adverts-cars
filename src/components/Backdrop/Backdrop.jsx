@@ -38,7 +38,6 @@ const Backdrop = ({ children, closeModal }) => {
         handleClose();
       }
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);

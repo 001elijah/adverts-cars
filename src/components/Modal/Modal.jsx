@@ -27,7 +27,11 @@ const Modal = ({ onClose, children }) => {
   return (
     <Backdrop closeModal={onClose}>
       <div className={s.modal}>
-          <button type='button' onClick={handleClose} className={s.close}>
+          <button 
+            type='button' 
+            onClick={handleClose} 
+            className={s.close}
+          >
             <img src={xIcon} alt="close" />
           </button>
               <div className={s.modalWrapper}>

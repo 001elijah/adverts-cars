@@ -3,13 +3,18 @@
 
 .wrapper {
     width: 274px;
+    margin: 0 auto;
     display: flex;
+    row-gap: 50px;
+    column-gap: 29px;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    row-gap: 50px;
-    column-gap: 29px;
-    margin: 0 auto;
+
+    &::after {
+        content: "";
+        flex: auto;
+    }
 
     @include tablet {
         width: 577px
@@ -18,9 +23,4 @@
     @include desktop {
         width: 1183px;
     }
-}
-
-.wrapper::after {
-    content: "";
-    flex: auto;
 }

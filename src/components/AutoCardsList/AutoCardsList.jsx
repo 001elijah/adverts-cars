@@ -1,27 +1,25 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import AutoCard from '../AutoCard/AutoCard';
-import s from './AutoCardsList.module.scss';
 import LoadMoreButton from '../LoadMoreButton/LoadMoreButton';
-
-const VEHICLES_PER_PAGE = 8;
+import { VEHICLES_PER_PAGE } from '../../utils/constants';
+import s from './AutoCardsList.module.scss';
 
 const AutoCardsList = ({ vehiclesDatabase, addToFavorites, removeFromFavorites, favoritesItems }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const indexOfLastVehicle = currentPage * VEHICLES_PER_PAGE;
-    const currentVehicles = vehiclesDatabase.slice(0, indexOfLastVehicle);
+    const currentVehicles = vehiclesDatabase
+        ? vehiclesDatabase.slice(0, indexOfLastVehicle)
+        : favoritesItems.slice(0, indexOfLastVehicle);
 
     const showNext = () => {
-        if (currentPage * VEHICLES_PER_PAGE > currentVehicles.length) {
-            alert('That\'s all')
-            return
-        };
         return setCurrentPage(prevState => prevState + 1);
     };
-    
-  return (
-      <>
+    return (
+        <>
           <ul className={s.wrapper}>
-              {vehiclesDatabase && currentVehicles.map(vehicle =>
+              {(vehiclesDatabase || favoritesItems)
+                  && currentVehicles.map(vehicle =>
                   <AutoCard 
                     key={vehicle.id} 
                     vehicleInfo={vehicle} 
@@ -30,12 +28,22 @@ const AutoCardsList = ({ vehiclesDatabase, addToFavorites, removeFromFavorites, 
                     favoritesItems={favoritesItems}
                   />)}
           </ul>
-          { currentPage * VEHICLES_PER_PAGE < vehiclesDatabase.length && <LoadMoreButton
-                  onClickProp={showNext}
-                //   isLoading={isLoading}
-          />}
-      </>
+            {
+                currentPage * VEHICLES_PER_PAGE <
+                (vehiclesDatabase
+                ? vehiclesDatabase.length
+                : favoritesItems.length)
+                && <LoadMoreButton onClickProp={showNext}/>
+            }
+        </>
   )
-}
+};
 
-export default AutoCardsList
+AutoCardsList.propTypes = {
+    vehiclesDatabase:PropTypes.array, 
+    addToFavorites:PropTypes.func.isRequired, 
+    removeFromFavorites:PropTypes.func.isRequired, 
+    favoritesItems:PropTypes.array
+};
+
+export default AutoCardsList;

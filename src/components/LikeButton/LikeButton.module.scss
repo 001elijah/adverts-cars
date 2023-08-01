@@ -1,0 +1,13 @@
+@import '../../assets/styles/vars';
+@import '../../assets/styles/mixins';
+
+.liked {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
