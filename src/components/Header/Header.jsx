@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './Header.module.scss';
 import { NavLink } from 'react-router-dom';
+import NavBar from '../NavBar/NavBar';
 
 const navItems = [
     { href: "/", text: "Home" },
@@ -11,27 +12,8 @@ const navItems = [
 const Header = () => {
   return (
       <header className={s.header}>
-            <nav className={s.navigation}>
-                {navItems.map(({ href, text }) =>
-                    <NavLink
-                        style={({ isActive }) =>
-                            isActive
-                                ? {
-                                padding: '7px 10px',
-                                color: '#fff',
-                                background: '#7600dc',
-                                borderRadius: '8px',
-                                }
-                            : { padding: '7px 10px', color: '#545e6f', background: '#ffe600' }
-                        }
-                        to={href}
-                        key={href}
-                    >
-                        {text}
-                    </NavLink>
-                )}
-            </nav>
-        </header>
+          <NavBar />
+      </header>
   )
 }
 

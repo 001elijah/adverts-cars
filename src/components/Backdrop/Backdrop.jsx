@@ -62,7 +62,6 @@ const Backdrop = ({ children, closeModal }) => {
   return createPortal(
     <div className={s.backdrop} onMouseUp={handleMouseUp} ref={backdropRef}>
       <div
-        className={s.modal}
         onClick={handleModalClick}
         onMouseDown={handleMouseDown}
         ref={modalRef}
