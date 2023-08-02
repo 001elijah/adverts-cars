@@ -13,7 +13,7 @@
     margin-bottom: 14px;
     object-fit: cover;
     border-radius: 14px;
-    background-color: rgb(237, 237, 237);
+    background-color: $image-placeholder-color;
     line-height: 100px;
     text-align: center;
 }
@@ -33,12 +33,12 @@
 }
 
 .modelHighlight {
-    color: #3470FF;
+    color: $accent-blue-color;
 }
 
 .infoWrapper {
     margin-bottom: 28px;
-    color: rgba(18, 20, 23, 0.50);
+    color: $grey-text-color;
     font-size: 12px;
     line-height: 1.6;
 
@@ -65,7 +65,7 @@
     text-align: center;
     border-radius: 12px;
     border: none;
-    color: #fff;
-    background: #3470FF;
+    color: $white-text-color;
+    background: $accent-blue-color;
     cursor: pointer;
 }

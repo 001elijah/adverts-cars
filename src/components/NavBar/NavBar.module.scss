@@ -1,3 +1,5 @@
+@import '../../assets/styles/vars';
+
 .navBar {
     display: flex;
     justify-content: flex-start;
@@ -5,8 +7,7 @@
     transition: color 450ms;
 
     & svg:hover {
-            // background-color: #7600dc;
-            color: #3470FF;
+            color: $accent-blue-color;
             border-radius: 4px;
             transition: color 450ms;
         }
@@ -26,7 +27,6 @@
     position: fixed;
     top: 0;
     left: -100%;
-    background-color: #ffffff;
     transition: 850ms;
 }
 
@@ -45,7 +45,7 @@
 
     & a {
         text-decoration: none;
-        color: #fff;
+        color: $white-text-color;
         font-size: 18px;
         width: 95%;
         height: 100%;
@@ -56,14 +56,14 @@
     }
 
     & a.isActive {
-        color: #000;
-        background: #ffe600;
+        color: $black-text-color;
+        background: $accent-yellow-color;
         border-radius: 4px;
     }
 
     & a:hover {
-        background-color: #ffe600;
-        color: #000;
+        background-color: $accent-yellow-color;
+        color: $black-text-color;
         transition: background-color 450ms;
     }
     & a span {
@@ -74,7 +74,7 @@
 
 .navBarItems {
     width: 100%;
-    background-color: #7600dc;
+    background-color: $accent-violet-color;
 }
 
 .navBarToggle {
@@ -83,7 +83,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: #7600dc;
+    background-color: $accent-violet-color;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 3px 0px;
 }
 
@@ -94,11 +94,11 @@
 }
 
 .menuItems {
-    color: #fff;
+    color: $white-text-color;
 
     & :hover {
-        background-color: #ffe600;
-        color: #000;
+        background-color: $accent-yellow-color;
+        color: $black-text-color;
         border-radius: 4px;
         transition: background-color 450ms;
     }

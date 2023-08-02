@@ -1,3 +1,5 @@
+@import '../../assets/styles/vars';
+
 .title {
     margin-bottom: 16px;
 }
@@ -13,7 +15,7 @@
     padding: 14px 20px;
     display: block;
     text-align: center;
-    color: #fff;
-    background-color: #7600dc;
+    color: $white-text-color;
+    background-color: $accent-violet-color;
     border-radius: 8px;
 }

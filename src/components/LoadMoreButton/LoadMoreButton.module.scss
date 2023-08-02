@@ -1,11 +1,13 @@
+@import '../../assets/styles/vars';
+
 .loadMoreButton {
     width: 79px;
     padding: 0;
-    margin: 100px auto;
+    margin: 50px auto 100px;
     display: block;
     background: none;
     border: none;
-    color: #3470FF;
+    color: $accent-blue-color;
     text-decoration-line: underline;
     cursor: pointer;
 }
