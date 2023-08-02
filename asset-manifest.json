@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/adverts-cars/static/css/main.e1aa9d27.css",
-    "main.js": "/adverts-cars/static/js/main.a3a8ac8d.js",
+    "main.js": "/adverts-cars/static/js/main.93ae723f.js",
     "static/media/Poppins-Regular.ttf": "/adverts-cars/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/adverts-cars/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/adverts-cars/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
@@ -10,10 +10,10 @@
     "index.html": "/adverts-cars/index.html",
     "static/media/xIcon.svg": "/adverts-cars/static/media/xIcon.6eb0f2d0f628dc352b26475432cdfc63.svg",
     "main.e1aa9d27.css.map": "/adverts-cars/static/css/main.e1aa9d27.css.map",
-    "main.a3a8ac8d.js.map": "/adverts-cars/static/js/main.a3a8ac8d.js.map"
+    "main.93ae723f.js.map": "/adverts-cars/static/js/main.93ae723f.js.map"
   },
   "entrypoints": [
     "static/css/main.e1aa9d27.css",
-    "static/js/main.a3a8ac8d.js"
+    "static/js/main.93ae723f.js"
   ]
 }
