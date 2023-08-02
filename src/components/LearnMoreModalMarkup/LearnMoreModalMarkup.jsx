@@ -34,8 +34,8 @@ const LearnMoreModalMarkup = ({ vehicleInfo }) => {
     `Fuel Consumption: ${fuelConsumption}`, 
     `Engine Size: ${engineSize}`
   ];
-
-  const prettifiedMileage = String(mileage).slice(0, 1) + ',' + String(mileage).slice(1);
+  
+  const prettifiedMileage = String(mileage).replace( /\d{1,3}(?=(\d{3})+(?!\d))/g , "$&,");
 
   const conditions = [
     ...rentalConditions.split('\n'),
