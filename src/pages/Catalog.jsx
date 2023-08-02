@@ -1,12 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AutoCardsList from '../components/AutoCardsList/AutoCardsList';
 
 const Catalog = ({ vehiclesDatabase, addToFavorites, removeFromFavorites, favoritesItems }) => {
   return (
-    <section className='container'>
-      <AutoCardsList vehiclesDatabase={vehiclesDatabase} addToFavorites={addToFavorites} removeFromFavorites={removeFromFavorites} favoritesItems={favoritesItems} />
-    </section>
+    <AutoCardsList
+      vehiclesDatabase={vehiclesDatabase}
+      addToFavorites={addToFavorites}
+      removeFromFavorites={removeFromFavorites}
+      favoritesItems={favoritesItems}
+    />
   )
-}
+};
 
-export default Catalog
+Catalog.propTypes = {
+    vehiclesDatabase:PropTypes.array, 
+    addToFavorites:PropTypes.func.isRequired, 
+    removeFromFavorites:PropTypes.func.isRequired, 
+    favoritesItems:PropTypes.array
+};
+
+export default Catalog;

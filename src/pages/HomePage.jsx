@@ -1,10 +1,10 @@
-import React from 'react'
-import HomePageSection from '../components/HomePageSection/HomePageSection'
+import React from 'react';
+import HomePageSection from '../components/HomePageSection/HomePageSection';
 
 const HomePage = () => {
   return (
-    <HomePageSection/>
+    <HomePageSection />
   )
-}
+};
 
-export default HomePage
+export default HomePage;

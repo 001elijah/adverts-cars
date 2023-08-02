@@ -16,7 +16,7 @@ const AutoCardsList = ({ vehiclesDatabase, addToFavorites, removeFromFavorites, 
         return setCurrentPage(prevState => prevState + 1);
     };
     return (
-        <>
+        <section className='container'>
           <ul className={s.wrapper}>
               {(vehiclesDatabase || favoritesItems)
                   && currentVehicles.map(vehicle =>
@@ -35,7 +35,7 @@ const AutoCardsList = ({ vehiclesDatabase, addToFavorites, removeFromFavorites, 
                 : favoritesItems.length)
                 && <LoadMoreButton onClickProp={showNext}/>
             }
-        </>
+        </section>
   )
 };
 
