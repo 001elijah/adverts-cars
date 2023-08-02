@@ -50,7 +50,7 @@ const LearnMoreModalMarkup = ({ vehicleInfo }) => {
         alt={[make, ' ' + model]} 
       />
       <div className={s.titleWrapper}>
-        <p>{make} <span className={s.modelHighlight}> {model}</span>, {year}</p>
+        <span>{make} <span className={s.modelHighlight}> {model}</span>, {year}</span>
       </div>
       <ul 
         className={clsx(s.infoWrapper, s.clamp)}
@@ -64,9 +64,9 @@ const LearnMoreModalMarkup = ({ vehicleInfo }) => {
         )}
       </ul>
       <p className={s.descriptionStyle}>{description}</p>
-      <p className={s.accessoriesTitleStyle}>
+      <span className={s.accessoriesTitleStyle}>
         Accessories and functionalities:
-      </p>
+      </span>
       <ul
         className={s.infoWrapper}
       >
@@ -76,9 +76,9 @@ const LearnMoreModalMarkup = ({ vehicleInfo }) => {
           </span>
         )}
       </ul>
-      <p className={s.conditionsTitleStyle}>
+      <span className={s.conditionsTitleStyle}>
         Rental conditions:
-      </p>
+      </span>
       <ul className={s.conditionsWrapper}>
         {conditions?.map(item => {
         if (item.match('Minimum age:') || item.match('Mileage:') || item.match('Price:')) {

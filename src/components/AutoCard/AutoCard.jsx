@@ -14,6 +14,7 @@ const AutoCard = ({ vehicleInfo, onAddToFavorites, onRemoveFromFavorites, favori
 
     const { 
         id, 
+        year,
         make, 
         model, 
         type, 
@@ -84,11 +85,11 @@ const AutoCard = ({ vehicleInfo, onAddToFavorites, onRemoveFromFavorites, favori
               }
               <img className={s.image} src={img} alt={[make, ' ' + model]} />
               <div className={s.titleWrapper}>
-                  <p className={s.clamp}>
+                  <span className={s.clamspan}>
                       {make}
-                      <span className={s.modelHighlight}> {model}</span>
-                  </p>
-                  <p>{rentalPrice}</p>
+                      <span className={s.modelHighlight}> {model}</span>, {year}
+                  </span>
+                  <span>{rentalPrice}</span>
               </div>
               <ul className={s.infoWrapper}>
                   {info?.map(item =>
