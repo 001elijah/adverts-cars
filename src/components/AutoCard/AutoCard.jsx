@@ -85,7 +85,7 @@ const AutoCard = ({ vehicleInfo, onAddToFavorites, onRemoveFromFavorites, favori
               }
               <img className={s.image} src={img} alt={[make, ' ' + model]} />
               <div className={s.titleWrapper}>
-                  <span className={s.clamspan}>
+                  <span className={s.clamp}>
                       {make}
                       <span className={s.modelHighlight}> {model}</span>, {year}
                   </span>
