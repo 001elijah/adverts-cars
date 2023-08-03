@@ -1,6 +1,7 @@
 @import '../../assets/styles/vars';
 
 .title {
+    padding-top: 22px;
     margin-bottom: 16px;
 }
 .caption {
@@ -18,4 +19,10 @@
     color: $white-text-color;
     background-color: $accent-violet-color;
     border-radius: 8px;
+    transition: background-color 300ms;
+
+    &:hover {
+        background-color: $accent-violet-hover-color;
+        color: $black-text-color;
+    }
 }

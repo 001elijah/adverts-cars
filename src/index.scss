@@ -63,3 +63,9 @@ body {
     padding-right: 24px;
   }
 }
+
+.backgroundImage {
+  height: calc(100vh - 64px);
+  background-image: url('./assets/images/F8-Spider-2.jpg');
+  background-size: cover;
+}
