@@ -12,12 +12,30 @@ function App() {
       const items = JSON.parse(localStorage.getItem('favoritesItems'));
       if (items) {
         return items;
+      } else {
+        return [];
         }
     } catch (error) {
       console.log(error.message);
     }
     });
   const [vehiclesDatabase, setVehiclesDatabase] = useState([]);
+
+  // -----------------NEW------------------------------------------/
+  const [currentPage, setCurrentPage] = useState(1);
+  const [allVehicles, setAllVehicles] = useState([]);
+  const [allFavoriteVehicles, setAllFavoriteVehicles] = useState([]);
+  useEffect(() => {
+    vehiclesDatabase && setAllVehicles(vehiclesDatabase)
+  }, [vehiclesDatabase])
+  useEffect(() => {
+    favoritesItems && setAllFavoriteVehicles(favoritesItems)
+  }, [favoritesItems])
+
+  const showNext = () => {
+        return setCurrentPage(prevState => prevState + 1);
+  };
+  // -----------------NEW------------------------------------------/
 
   const addToFavorites = (id) => {
     const vehicle = vehiclesDatabase.filter(item => item.id === id);
@@ -51,8 +69,30 @@ function App() {
     <Routes>
       <Route path="/" element={<SharedLayout/>}>
         <Route index element={<HomePage />} />
-        <Route path='/catalog' element={<Catalog vehiclesDatabase={vehiclesDatabase} addToFavorites={addToFavorites} removeFromFavorites={removeFromFavorites} favoritesItems={favoritesItems} />} />
-        <Route path='/favorites' element={<Favorites vehiclesDatabase={vehiclesDatabase} addToFavorites={addToFavorites} removeFromFavorites={removeFromFavorites} favoritesItems={favoritesItems} />} />
+        <Route path='/catalog' element={
+          <Catalog 
+            vehiclesDatabase={vehiclesDatabase} 
+            addToFavorites={addToFavorites} 
+            removeFromFavorites={removeFromFavorites} 
+            favoritesItems={favoritesItems}
+            allVehicles={allVehicles}
+            currentPage={currentPage}
+            showNext={showNext}
+            setAllVehicles={setAllVehicles}
+          />}
+        />
+        <Route path='/favorites' element={
+          <Favorites 
+            vehiclesDatabase={vehiclesDatabase} 
+            addToFavorites={addToFavorites} 
+            removeFromFavorites={removeFromFavorites} 
+            favoritesItems={favoritesItems}
+            allFavoriteVehicles={allFavoriteVehicles}
+            currentPage={currentPage}
+            showNext={showNext}
+            setAllFavoriteVehicles={setAllFavoriteVehicles}
+          />}
+        />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>

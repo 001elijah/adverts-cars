@@ -23,6 +23,7 @@
     margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
+    line-height: 1.5;
 }
 
 .clamp {
@@ -69,4 +70,9 @@
     color: $white-text-color;
     background: $accent-blue-color;
     cursor: pointer;
+    transition: background-color 300ms;
+
+    &:hover {
+       background: $accent-blue-hover-color;
+    }
 }

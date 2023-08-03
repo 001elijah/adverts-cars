@@ -19,3 +19,5 @@ export const SIDEBAR_DATA = [
         icons: <AiIcons.AiOutlineHeart />
     }
 ]
+
+export const PRICE_FILTER_INTERVAL = 10;

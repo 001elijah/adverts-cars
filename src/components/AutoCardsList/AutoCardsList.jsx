@@ -1,46 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import AutoCard from '../AutoCard/AutoCard';
 import LoadMoreButton from '../LoadMoreButton/LoadMoreButton';
 import { VEHICLES_PER_PAGE } from '../../utils/constants';
 import s from './AutoCardsList.module.scss';
 
-const AutoCardsList = ({ vehiclesDatabase, addToFavorites, removeFromFavorites, favoritesItems }) => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const indexOfLastVehicle = currentPage * VEHICLES_PER_PAGE;
-    const currentVehicles = vehiclesDatabase
-        ? vehiclesDatabase.slice(0, indexOfLastVehicle)
-        : favoritesItems.slice(0, indexOfLastVehicle);
+const AutoCardsList = ({ addToFavorites, removeFromFavorites, favoritesItems, allVehicles, allFavoriteVehicles, currentPage, showNext }) => {
+    const [vehiclesToShow, setVehiclesToShow] = useState([])
+    const [indexOfLastVehicle, setIndexOfLastVehicle] = useState([]);
 
-    const showNext = () => {
-        return setCurrentPage(prevState => prevState + 1);
-    };
+    useEffect(() => {
+        allVehicles ? setVehiclesToShow(allVehicles.slice(0, indexOfLastVehicle)) : setVehiclesToShow(allFavoriteVehicles.slice(0, indexOfLastVehicle));
+    }, [allVehicles, allFavoriteVehicles, indexOfLastVehicle]);
+
+    useEffect(() => {
+      setIndexOfLastVehicle(currentPage * VEHICLES_PER_PAGE)
+    }, [currentPage])
     return (
-        <section className='container'>
+        <>
           <ul className={s.wrapper}>
-              {(vehiclesDatabase || favoritesItems)
-                  && currentVehicles.map(vehicle =>
+              {Boolean(vehiclesToShow.length) ? vehiclesToShow.map(vehicle =>
                   <AutoCard 
                     key={vehicle.id} 
                     vehicleInfo={vehicle} 
                     onAddToFavorites={addToFavorites} 
                     onRemoveFromFavorites={removeFromFavorites}
                     favoritesItems={favoritesItems}
-                  />)}
+                  />)
+                    : <h2>No vehicles yet...</h2>
+                }
           </ul>
             {
-                currentPage * VEHICLES_PER_PAGE <
-                (vehiclesDatabase
-                ? vehiclesDatabase.length
-                : favoritesItems.length)
+                indexOfLastVehicle < (allVehicles ? allVehicles.length : allFavoriteVehicles.length)
                 && <LoadMoreButton onClickProp={showNext}/>
             }
-        </section>
+        </>
   )
 };
 
 AutoCardsList.propTypes = {
-    vehiclesDatabase:PropTypes.array, 
     addToFavorites:PropTypes.func.isRequired, 
     removeFromFavorites:PropTypes.func.isRequired, 
     favoritesItems:PropTypes.array
